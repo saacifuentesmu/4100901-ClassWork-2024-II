@@ -25,6 +25,7 @@ set(sources_SRCS ${sources_SRCS}
     
 	${CMAKE_CURRENT_SOURCE_DIR}/Src/main.c
 	${CMAKE_CURRENT_SOURCE_DIR}/Src/systick.c
+	${CMAKE_CURRENT_SOURCE_DIR}/Src/gpiox.c
 	${CMAKE_CURRENT_SOURCE_DIR}/Src/syscall.c
 	${CMAKE_CURRENT_SOURCE_DIR}/Src/sysmem.c
 	${CMAKE_CURRENT_SOURCE_DIR}/Startup/startup_stm32l476rgtx.s
