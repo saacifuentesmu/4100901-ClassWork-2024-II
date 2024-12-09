@@ -58,3 +58,4 @@ void UART_send_string(USART_TypeDef * UARTx, char * str) {
         UART_send_char(UARTx, *str++);
     }
 }
+
