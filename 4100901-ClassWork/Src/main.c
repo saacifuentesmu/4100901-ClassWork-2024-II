@@ -6,16 +6,17 @@
 
 
 int main(void)
-{
+{   
     configure_systick_and_start();
     configure_gpio();
     
     UART_Init(USART2);
-
-    uint8_t state = 0; // state of the FSM
     UART_send_string(USART2, "Hello World, from main!\r\n");
+    uint8_t state = 0; // state of the FSM
+    
 
     while (1) {
+        
         switch (state) {
         case 0: // idle
             if (gpio_button_is_pressed() != 0) { // If button is pressed
@@ -27,7 +28,9 @@ int main(void)
         case 1: // button pressed
             if (gpio_button_is_pressed() == 0) { // If button is released
                 systick_reset(); // Reset counter
+                
                 state = 0;
+                
             }
             break;
         case 2: // led toggle
