@@ -101,9 +101,11 @@ void UART_receive_it(USART_TypeDef * UARTx, uint8_t *buffer, uint8_t len)
     rx_len = len;
     rx_index = 0;
 }
-void USART2_IRQHandler(void) {
+void USART2_IRQHandler(void)
+{
     // Check if the USART2 receive interrupt flag is set
-    if (USART2->ISR & (1 << 5)) {
+    uint32_t isr = USART2->ISR;
+    if (isr & (1 << 5)) {
         // Clear the interrupt flag
         USART2->ICR |= (1 << 5);
         // Read received data
