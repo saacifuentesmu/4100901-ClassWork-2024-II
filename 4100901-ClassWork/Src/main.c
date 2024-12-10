@@ -16,7 +16,7 @@ int main(void)
     
 
     uint8_t buffer[10];
-    UART_receive_string(USART2, buffer, 10);
+    UART_receive_string(USART2, buffer, 1);
 
     UART_send_string(USART2, "Received: ");
     UART_send_string(USART2, buffer);
