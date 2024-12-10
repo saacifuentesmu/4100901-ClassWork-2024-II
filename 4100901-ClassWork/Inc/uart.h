@@ -49,3 +49,6 @@ void UART_send_char(USART_TypeDef * UARTx, char ch);
 void UART_send_string(USART_TypeDef * UARTx, char * str);
 
 void UART_receive_string(USART_TypeDef * UARTx, uint8_t *buffer, uint8_t len);
+void UART_receive_it(USART_TypeDef * UARTx, uint8_t *buffer, uint8_t len);
+
+extern uint8_t rx_ready;
