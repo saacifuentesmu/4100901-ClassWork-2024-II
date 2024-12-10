@@ -15,6 +15,13 @@ int main(void)
     uint8_t state = 0; // state of the FSM
     UART_send_string(USART2, "Hello World, from main!\r\n");
 
+    uint8_t buffer[10];
+    UART_receive_string(USART2, buffer, 10);
+
+    UART_send_string(USART2, "Received: ");
+    UART_send_string(USART2, buffer);
+    UART_send_string(USART2, "\r\n");
+
     while (1) {
         switch (state) {
         case 0: // idle

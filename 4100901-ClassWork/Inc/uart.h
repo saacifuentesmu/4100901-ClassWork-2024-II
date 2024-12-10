@@ -40,11 +40,12 @@ typedef struct {
 #define USART_ISR_TEACK   (1U << 21)   // Transmit enable acknowledge flag
 #define USART_ISR_REACK   (1U << 22)   // Receive enable acknowledge flag
 
-// Baud rate register definition for 80 MHz APB clock and 9600 baud rate
-#define BAUD_9600_80MHZ   (0x1A1)       // Calculated value for 9600 baud rate with 80 MHz APB clock
+// Baud rate register definition for 4 MHz APB clock and 9600 baud rate
+#define BAUD_9600_4MHZ   (0x1A1)       // Calculated value for 9600 baud rate with 4 MHz APB clock
 
 
 void UART_Init (USART_TypeDef * UARTx);
 void UART_send_char(USART_TypeDef * UARTx, char ch);
 void UART_send_string(USART_TypeDef * UARTx, char * str);
 
+void UART_receive_string(USART_TypeDef * UARTx, uint8_t *buffer, uint8_t len);
