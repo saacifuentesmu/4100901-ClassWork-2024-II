@@ -28,8 +28,8 @@ void UART_Init (USART_TypeDef * UARTx) {
     // Oversampling by 16 (clear OVER8 bit)
     UARTx->CR1 &= ~USART_CR1_OVER8;
 
-    // Set Baud rate to 9600 using APB frequency (80 MHz)
-    UARTx->BRR = BAUD_9600_80MHZ;
+    // Set Baud rate to 9600 using APB frequency (4 MHz)
+    UARTx->BRR = BAUD_9600_4MHZ;
 
     // Enable transmission and reception
     UARTx->CR1 |= (USART_CR1_TE | USART_CR1_RE);
@@ -56,5 +56,21 @@ void UART_send_string(USART_TypeDef * UARTx, char * str) {
     // Send each character in the string
     while (*str) {
         UART_send_char(UARTx, *str++);
+    }
+}
+
+uint8_t  UART_receive_char(USART_TypeDef * UARTx) {
+    // Wait until data is received
+    while ((UARTx->ISR & (1 << 5)) == 0);
+
+    // Read received data
+    return UARTx->RDR;
+}
+
+void UART_receive_string(USART_TypeDef * UARTx, uint8_t *buffer, uint8_t len) {
+    uint8_t i = 0;
+    while (i < len) {
+        buffer[i] = UART_receive_char(UARTx);
+        i++;
     }
 }
