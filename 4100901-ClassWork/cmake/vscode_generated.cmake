@@ -25,6 +25,9 @@ set(sources_SRCS ${sources_SRCS}
     
 	${CMAKE_CURRENT_SOURCE_DIR}/Src/main.c
 	${CMAKE_CURRENT_SOURCE_DIR}/Src/gpio.c
+	${CMAKE_CURRENT_SOURCE_DIR}/Src/parking_lights.c
+	${CMAKE_CURRENT_SOURCE_DIR}/Src/led_driver.c
+	${CMAKE_CURRENT_SOURCE_DIR}/Src/button_driver.c
 	${CMAKE_CURRENT_SOURCE_DIR}/Src/uart.c
 	${CMAKE_CURRENT_SOURCE_DIR}/Src/systick.c
 	${CMAKE_CURRENT_SOURCE_DIR}/Src/syscall.c
