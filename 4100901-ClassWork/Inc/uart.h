@@ -44,7 +44,7 @@ typedef struct {
 #define BAUD_9600_4MHZ   (0x1A1)       // Calculated value for 9600 baud rate with 4 MHz APB clock
 #define UART_BUFFER_SIZE 1
 extern uint8_t rx__buffer[UART_BUFFER_SIZE]; // Buffer para almacenar el comando recibido
-#define UART_BUFFER_ 10
+#define UART_BUFFER_ 1
 
 void UART_Init (USART_TypeDef * UARTx);
 void UART_send_char(USART_TypeDef * UARTx, char ch);

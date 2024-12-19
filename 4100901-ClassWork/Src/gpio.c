@@ -16,15 +16,16 @@
 #define SYSCFG ((SYSCFG_t *)SYSCFG_BASE)
 
 #define GPIOA ((GPIO_t *)0x48000000) // Base address of GPIOA
+#define GPIOB ((GPIO_t *)0x48000400) // Base address of GPIOB
 #define GPIOC ((GPIO_t *)0x48000800) // Base address of GPIOC
 
 #define LED_PIN 5    // Pin 5 of GPIOA
-#define LED_LEFT 14   // Pin 14 of GPIOA (Led left) 6
-#define LED_RIGHT 15  // Pin 15 de GPIOA (Led right) 7
+#define LED_LEFT 12   // Pin 12 of GPIOA (Led left) 6
+#define LED_RIGHT 11  // Pin 11 de GPIOA (Led right) 7
 
-#define BUTTON_PIN 13    // Pin 13 of GPIOC  1
-#define BUTTON_LEFT 14   // Pin 14 de GPIOC (Button left) 4
-#define BUTTON_RIGHT 15  // Pin 15 de GPIOC (Button right) 0
+#define BUTTON_PIN 13    // Pin 13 of GPIOC  1 gpioa
+#define BUTTON_LEFT 4   // Pin 4 de GPIOC (Button left) 4 gpioa
+#define BUTTON_RIGHT 5  // Pin 5 de GPIOC (Button right) 0 gpiob
 
 #define BUTTON_IS_PRESSED()    (!(GPIOC->IDR & (1 << BUTTON_PIN)))
 #define BUTTON_LEFT_IS_PRESSED()   (!(GPIOC->IDR & (1 << BUTTON_LEFT)))
